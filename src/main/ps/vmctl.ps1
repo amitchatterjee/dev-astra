@@ -66,3 +66,18 @@ elseif (('stop' -eq $command)) {
 elseif (('sh' -eq $command)) {
     ssh developer@cloudy
 }
+elseif (('status' -eq $command)) {
+    $Running = (VBoxManage list runningvms | Select-String 'Cloudy')
+    if ($Running.Length -gt 0) {
+            Write-Output "VM is running"
+    } else {
+        Write-Output "VM is not running"
+    }
+}
+elseif  (('info' -eq $command)) {
+    VBoxManage showvminfo Cloudy
+}
+else {
+    Write-Error "Unknown command: $command"
+    Exit(1)
+}

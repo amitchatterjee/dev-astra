@@ -4,7 +4,7 @@ Param(
 )
 
 if (-not $name -or -not $hostPath) {
-    Write-Error "name and/or hostpath not specified"
+    Write-Error "name and/or hostPath not specified"
     Exit(1)
 }
 
