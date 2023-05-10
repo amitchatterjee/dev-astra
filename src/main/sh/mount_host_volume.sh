@@ -41,7 +41,7 @@ if [ -z "$found" ]; then
     cp /etc/fstab $HOME
     cp $HOME/fstab $HOME/fstab.bak
     echo """
-$name $path vboxsf  defaults,uid=1000,gid=1000,umask=0022  0 0
+$name $path vboxsf  defaults,uid=1000,gid=1000,umask=0022,comment=systemd.automount  0 0
 """ >> $HOME/fstab
     sudo cp $HOME/fstab /etc/
     sudo mount -a
